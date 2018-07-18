@@ -108,23 +108,29 @@
 
 
 
-  <meta name="description" content="MR Developer, Infagic Smith">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Curookie&#39;s Infagic Blog">
-<meta property="og:url" content="https://curookie.github.io/index.html">
+  <meta name="description" content="이 내용은 &amp;quot;윤석진&amp;quot;님의 &amp;quot;스프링 부트로 배우는 자바 웹 개발&amp;quot; 책을 기반으로 참고하여 제 생각과 이해한 내용을 요약한 것임을 알려드립니다.  [2.1] 서블릿 시작하기 서블릿은 Java EE(Enterprise Edition)에 포함 된 스펙 중 하나다. 자바에서 HTTP 요청과 응답을 처리하기 위한 내용들을 담고 있">
+<meta name="keywords" content="스프링 부트,Spring Boot,백엔드 개발,서블릿">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[스프링 부트] 2. 서블릿">
+<meta property="og:url" content="https://curookie.github.io/2018/07/09/2018-07-11-스프링-부트-2-서블릿/index.html">
 <meta property="og:site_name" content="Curookie&#39;s Infagic Blog">
-<meta property="og:description" content="MR Developer, Infagic Smith">
+<meta property="og:description" content="이 내용은 &amp;quot;윤석진&amp;quot;님의 &amp;quot;스프링 부트로 배우는 자바 웹 개발&amp;quot; 책을 기반으로 참고하여 제 생각과 이해한 내용을 요약한 것임을 알려드립니다.  [2.1] 서블릿 시작하기 서블릿은 Java EE(Enterprise Edition)에 포함 된 스펙 중 하나다. 자바에서 HTTP 요청과 응답을 처리하기 위한 내용들을 담고 있">
 <meta property="og:locale" content="ko">
+<meta property="og:image" content="https://curookie.github.io/images/servlet.jpg">
+<meta property="og:image" content="https://curookie.github.io/images/frontcontrollerpattern.gif">
+<meta property="og:image" content="https://curookie.github.io/images/commandpattern.png">
+<meta property="og:updated_time" content="2018-07-18T07:43:51.403Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Curookie&#39;s Infagic Blog">
-<meta name="twitter:description" content="MR Developer, Infagic Smith">
+<meta name="twitter:title" content="[스프링 부트] 2. 서블릿">
+<meta name="twitter:description" content="이 내용은 &amp;quot;윤석진&amp;quot;님의 &amp;quot;스프링 부트로 배우는 자바 웹 개발&amp;quot; 책을 기반으로 참고하여 제 생각과 이해한 내용을 요약한 것임을 알려드립니다.  [2.1] 서블릿 시작하기 서블릿은 Java EE(Enterprise Edition)에 포함 된 스펙 중 하나다. 자바에서 HTTP 요청과 응답을 처리하기 위한 내용들을 담고 있">
+<meta name="twitter:image" content="https://curookie.github.io/images/servlet.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://curookie.github.io/"/>
+  <link rel="canonical" href="https://curookie.github.io/2018/07/09/2018-07-11-스프링-부트-2-서블릿/"/>
 
 
 
@@ -134,7 +140,7 @@
   };
 </script>
 
-  <title>Curookie's Infagic Blog</title>
+  <title>[스프링 부트] 2. 서블릿 | Curookie's Infagic Blog</title>
   
 
 
@@ -190,8 +196,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -232,7 +237,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />홈</a>
   </li>
@@ -334,9 +339,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -368,11 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/09/2018-07-11-스프링-부트-2-서블릿/" itemprop="url">
-                  [스프링 부트] 2. 서블릿
-                </a>
+          <h1 class="post-title" itemprop="name headline">[스프링 부트] 2. 서블릿
               
             
           </h1>
@@ -477,9 +478,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>이 내용은 &quot;윤석진&quot;님의 &quot;스프링 부트로 배우는 자바 웹 개발&quot; 책을 기반으로 참고하여 제 생각과 이해한 내용을 요약한 것임을 알려드립니다.</p>
 </blockquote>
 <h1 id="2-1-서블릿-시작하기">[2.1] 서블릿 시작하기</h1>
@@ -785,8 +784,6 @@ home.jsp       &lt;- HomeView<br>
 모든 요청은 FrontController 클래스가 받고, HomeView는 Command클래스를 상속받았고 요청 파라미터가 Home인 경우 home.jsp를 호출한다.</p>
 <p>이와 같이 프론트 컨트롤러 패턴은 뷰 페이지 요청을 한 곳에서 관리할 수 있게 해준다. HomeView외에 다른 뷰를 만들어 jsp와 연결 시킬 수 있다.</p>
 
-          
-        
       
     </div>
 
@@ -801,579 +798,59 @@ home.jsp       &lt;- HomeView<br>
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>JJ WON</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://curookie.github.io/2018/07/09/2018-07-11-스프링-부트-2-서블릿/" title="[스프링 부트] 2. 서블릿">https://curookie.github.io/2018/07/09/2018-07-11-스프링-부트-2-서블릿/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://curookie.github.io/2018/07/09/2018-07-09-스프링-부트-1-개발-환경의-변화와-자바/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JJ WON">
-      <meta itemprop="description" content="MR Developer, Infagic Smith">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Curookie's Infagic Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/09/2018-07-09-스프링-부트-1-개발-환경의-변화와-자바/" itemprop="url">
-                  [스프링 부트] 1. 개발 환경의 변화와 자바
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-07-09 15:52:00" itemprop="dateCreated datePublished" datetime="2018-07-09T15:52:00+09:00">2018-07-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-07-18 00:26:07" itemprop="dateModified" datetime="2018-07-18T00:26:07+09:00">2018-07-18</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/스프링-부트/" rel="tag"># 스프링 부트</a>
           
-
+            <a href="/tags/Spring-Boot/" rel="tag"># Spring Boot</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/09/2018-07-09-스프링-부트-1-개발-환경의-변화와-자바/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/09/2018-07-09-스프링-부트-1-개발-환경의-변화와-자바/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/백엔드-개발/" rel="tag"># 백엔드 개발</a>
           
-
+            <a href="/tags/서블릿/" rel="tag"># 서블릿</a>
           
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>이 내용은 &quot;윤석진&quot;님의 &quot;스프링 부트로 배우는 자바 웹 개발&quot; 책을 기반으로 참고하여 제 생각과 이해한 내용을 요약한 것임을 알려드립니다.</p>
-</blockquote>
-<h1 id="1-1-인프라와-스프링-프레임워크의-변화">[1.1] 인프라와 스프링 프레임워크의 변화</h1>
-<p>최근 웹 개발의 트랜드는 조립식이다. 오픈 소스들을 조합해서 서비스를 출시하는 경우가 많은데, 스프링 부트는 웹 개발을 쉽게 할 수 있게 돕는 툴<sub>인프라</sub>이다. 이를 시작하기 전에 자바 기술의 변화에 대해 알 필요가 있다.</p>
-<h2 id="1-1-1-아키텍처의-변화">[1.1.1] 아키텍처의 변화</h2>
-<p>인터넷 시장의 트랜드 변화<br>
-</p><h4>인트라넷 -&gt; B2C</h4><br>
-이 결과 인프라 아키텍처가 변화게되었다. <sub>Spring이 뜨고 Spring Boot가 생기고</sub><p></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:center">1. 메인프레임</th>
-<th style="text-align:center">2. 서버/클라이언트</th>
-<th style="text-align:center">3. 웹</th>
-<th style="text-align:center">4. 클라우드</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>인터페이스</td>
-<td style="text-align:center">터미널</td>
-<td style="text-align:center">웹 브라우저/GUI</td>
-<td style="text-align:center">웹 서버</td>
-<td style="text-align:center">인스턴트 또는 컨테이너</td>
-</tr>
-<tr>
-<td>주 언어</td>
-<td style="text-align:center">코볼, 포트란</td>
-<td style="text-align:center">델파이, C++, 펄</td>
-<td style="text-align:center">PHP, JSP, ASP</td>
-<td style="text-align:center">파이썬</td>
-</tr>
-<tr>
-<td>목적</td>
-<td style="text-align:center">B2B</td>
-<td style="text-align:center">B2C</td>
-<td style="text-align:center">B2C</td>
-<td style="text-align:center">B2C</td>
-</tr>
-<tr>
-<td>플랫폼 지원 수준</td>
-<td style="text-align:center">단일접속, 순차 배치 처리</td>
-<td style="text-align:center">클라이언트 설치를 통한, 접속 지원</td>
-<td style="text-align:center">웹 서버에 의한 접속 처리, 별도의 데이터베이스 서버 활용 빈도수가 높아짐</td>
-<td style="text-align:center">물리 설치 없이 인스턴스 형태로, 자유롭게 확장 가능</td>
-</tr>
-</tbody>
-</table>
-<h2 id="1-1-2-스프링-프레임워크의-변화">[1.1.2] 스프링 프레임워크의 변화</h2>
-<p>초기에는 오라클 IBM과 같은 업체들이 제공하는 솔루션을 주로 사용했다.<br>
-서버: 웹로직, 웹스피어<br>
-개발API: EJB<sub>Enterprise JavaBean</sub> 사용</p>
-<p>스프링은 EJB의 복잡하고 테스트하기도 어려우며 무거운 요소를 해결하기 위해 만들어졌다.<br>
-톰캣서버가 버전업, 스프링 프레임워크도 2.5버전 이후로 안정화되면서 스프링이 기반이 되고, 결정타로 전자정부 프레임워크에서도 기반 기술로 스프링 프레임워크를 채택하면서 스프링 프레임워크와 톰캣 조합이 표준이 되었다.<br>
-서버: 톰캣<br>
-개발 프레임워크: 스프링 프레임워크</p>
-<p>최근에는 스타트업이 대거 등장, 빠르게 서비스를 런칭= 클라우드 사용 빈도가 증가. B2C 서비스의 경우 서버를 물리적으로 증설하지 않고 PaaS(Platform as a Service)로 서버를 물리적으로 증설하지 않고 인스턴스를 추가로 사용함에 따라 스프링은 위기에 빠져들었다. 스프링의 JDK, Tomcat설치 복잡한 <s>빡치는</s> XML설정하는 일련의 작업들을 간소화해야하는 방법이 필요해졌다. 결국 스타트업들은 답답한 스프링을 견딜 수 없었고, 루비온레일스(RubyOnRails)나 장고(Django)를 이용해 빠르게 개발하는 것을 선호하게 되었다.</p>
-<p>스프링 측은 이런 문제를 해결하기 위해 스프링 부트<sub>Spring Boot</sub>를 제작한다.<br>
-스프링 부트는 설정 자동화를 이용해서 MVC 모듈의 DispatcherServlet설정 JDBC DataSource 설정 등 웹 개발을 하는 데 필요한 인프라성 코드를 제공해 줌으로써 복잡한 XML 설정을 하지 않아도 <s>개이득</s> 개발을 시작할 수 있다. 또한, 임베디드 톰켓을 이용해 톰캣설치가 필요없고 main 메서드로 실행할 수 있다. 그리고 클라우드 환경에서도 별도의 작업 없이 스프링 부트를 이용하면 시간을 많이 단축할 수 있다.<br>
-서버: 임베디드 톰켓<br>
-개발 프레임워크: 스프링 부트 프레임워크</p>
-<h1 id="1-2-웹-애플리케이션-컨테이너">[1.2] 웹 애플리케이션 컨테이너</h1>
-<p>일반적으로 HTML과 같이 정적 파일들을 전달해 주는 역할을 하는 서버를 웹 서버라고 하고,<br>
-PHP, JSP, ASP와 같은 언어들을 사용해서 동적인 페이지들을 생성 가능한 서버를 웹 애플리케이션 서버(Web Application Server), 자바 계열에서는 <b>웹 애플리케이션 컨테이너(Web Application Container)</b>라고 하며, 이는 웹 애플리케이션이 배포되는 공간을 뜻한다. Web Application Server/Container를 줄여서 <b>WAS</b>라고 부른다.<br>
-WAS가 어떻게 웹 애플리케이션을 인식하고 동작시키는지 알기 위해서는 클래스 로더를 알아야한다.</p>
-<h2 id="1-2-1-자바-개발을-위해-꼭-필요한-클래스-로더">[1.2.1] 자바 개발을 위해 꼭 필요한 클래스 로더</h2>
-<p>자바의 가장 큰 특징 중 하나인 &quot;Write once, run anywhere&quot;<sub>한번 작성하면 플랫폼에 상관없이 쓸 수 있다.</sub>는 <b>클래스 로더(Class Loader)</b>가 있기에 가능하다.<br>
-자바 코드를 컴파일하면 JVM에서 실행가능한 상태가 된다. 클래스를 실행시키기 위해 클래스를 로딩하는 과정이 필요한데 그 과정을 수행해주는 녀석이 클래스 로더다.<br>
-클래스패스(Classpath)에 해당 모듈 또는 라이브러리를 추가하면 클래스파일 메타 정보 중 첫 번째 시작 필드를 이용해 클래스를 로딩한다.</p>
-<h3 id="1-2-1-1-클래스-로더의-특징">[1.2.1.1] 클래스 로더의 특징</h3>
-<ol>
-<li>구조가 계층적이다.</li>
-</ol>
-<ul>
-<li>상위 클래스 로더에서 하위 클래스 로더를 갖는 방식이며, 최상위 클래스 로더는 부트스트랩 클래스 로더다.</li>
-</ul>
-<ol start="2">
-<li>클래스 로딩을 위임할 수 있다.</li>
-<li>가시적인 규약이 있다.</li>
-</ol>
-<ul>
-<li>클래스를 로딩할 떄 가능한 범위가 있다는 말이다. 부모 클래스 로더는 자식 클래스 로더가 로딩한 클래스를 알 수 없다.</li>
-</ul>
-<ol start="4">
-<li>클래스 언로딩 불가능.</li>
-</ol>
-<ul>
-<li>클래스 로더로 로딩한 클래스들을 언로딩 할 수 없다. Garbage Collector가 동작하거나 WAS가 재시작할 때 초기화 된다.</li>
-</ul>
-<h3 id="1-2-1-2-클래스-로더의-유형">[1.2.1.2] 클래스 로더의 유형</h3>
-<p>클래스 로더에는 네 가지 유형이 있고 순차적으로 로드한다.</p>
-<ol>
-<li>부트스트랩 클래스 로더(Bootstrap Class Loader)</li>
-</ol>
-<ul>
-<li>JVM 런타임 실행을 위해 기반이 되는 파일들을 로드한다. rt.tar 파일과 연관이 있다.</li>
-</ul>
-<ol start="2">
-<li>확장 클래스 로더(Extension Class Loader)</li>
-</ol>
-<ul>
-<li>자바의 최상위 객체인 Object를 포함한 자바 API를 로드한다. ext 폴더 하위에 있는 jar 파일들과 연관있다.</li>
-</ul>
-<ol start="3">
-<li>시스템 클래스 로더(System Class Loader)</li>
-</ol>
-<ul>
-<li>클래스패스에 포함된 클래스들을 로드한다.</li>
-</ul>
-<ol start="4">
-<li>사용자 정의 클래스 로더(User-defined Class Loader)</li>
-</ol>
-<ul>
-<li>개발자가 만든 클래스 로더이다. 가장 마지막에 로드한다.</li>
-</ul>
-<p><img src="/images/classloader.png" alt=""></p>
-<h1 id="1-3-war-파일의-특성">[1.3] WAR 파일의 특성</h1>
-<p>배포시에 로컬 실행 프로그램은 jar로 패키징하고, 웹은 war(Web Application Resource)로 패키징한다.<br>
-war는 압축 파일에 자바 관련 규약이 포함된 것이다. 바로 WEB-INF 폴더다.<br>
-WAS는 war파일의 WEB-INF 폴더를 기준으로 클래스 파일들을 로드한다.<br>
-war로 패키징하면 클래스 파일들은 WEB-INF 하위 classes 폴더에 저장된다.<br>
-WEB-INF의 하위 libs 폴더에는 jar형식의 외부 라이브러리들이 있다.<br>
-jar 라이브러리들은 사용자 정의 클래스 로더인, 웹 애플리케이션 컨테이너 로더를 통해 클래스패스에 추가된다.<br>
-class 파일들은 웹 애플리케이션 클래스 로더를 통해 추가된다.<br>
-WAS는 웹 애플리케이션 자체 API를 제공하기 위해 컨테이너를 로드하는 클래스 로더와 사용자가 추가한 JSP나 WAR 파일들을 다루기 위한 ServletContext Loader를 사용한다.<br>
-컨테이너가 시작되고 콘텍스트가 초기화되면 서블릿 스펙의 권장 사항에 따라 WEB-INF/classes 파일을 먼저 검색해서 로딩하고, 그 후에 WEB-INF/libs에 있는 jar파일들을 로드한다.</p>
-<p><img src="/images/warfiles.gif" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://curookie.github.io/2018/06/15/2018-06-15-실용영어-필수-구어체-5개-wanna-gonna-gotta-kinda-outta/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JJ WON">
-      <meta itemprop="description" content="MR Developer, Infagic Smith">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Curookie's Infagic Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/15/2018-06-15-실용영어-필수-구어체-5개-wanna-gonna-gotta-kinda-outta/" itemprop="url">
-                  [실용영어] 필수 구어체 5개 wanna gonna gotta kinda outta
-                </a>
-              
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2018/07/09/2018-07-09-스프링-부트-1-개발-환경의-변화와-자바/" rel="next" title="[스프링 부트] 1. 개발 환경의 변화와 자바">
+                <i class="fa fa-chevron-left"></i> [스프링 부트] 1. 개발 환경의 변화와 자바
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-15 12:48:00" itemprop="dateCreated datePublished" datetime="2018-06-15T12:48:00+09:00">2018-06-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-06-18 18:20:11" itemprop="dateModified" datetime="2018-06-18T18:20:11+09:00">2018-06-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/영어/" itemprop="url" rel="index"><span itemprop="name">영어</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/15/2018-06-15-실용영어-필수-구어체-5개-wanna-gonna-gotta-kinda-outta/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/15/2018-06-15-실용영어-필수-구어체-5개-wanna-gonna-gotta-kinda-outta/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <blockquote>
-<p>오늘은 실제로 많이 쓰이지만<sub>회화, 영화, 드라마에 꼭 나온다</sub> <s>시험영어만 가르치는 우리나라에선</s> 잘 언급되지 않는 구어체 5가지 표현을 알려드리려고 합니다.</p>
-</blockquote>
-<h1 id="wanna-워너-want-to">Wanna 워너 (= want to)</h1>
-<p><img src="/images/wanna.jpg" alt=""></p>
-<h2 id="개요">개요</h2>
-<p>want<sub>원하다</sub> 동사 뒤에는 to가 붙기 마련입니다. 생각해보세요, 원한다는 걸 말할 때 무조건 뭘 원하는지<sub>to</sub> 말하기 마련이잖아요.<br>그리고 want to<sub>~을 원하다</sub>를 미국식으로 읽으면 t발음이 잘 안나면서 <code>워너-</code> 라고 읽을 수 있습니다. 모든 언어는 짧고 간단할 수록 좋습니다. 결국 이런식으로 쓰게 되는 데 한 단어로 표현 할 수 있으면 좋은거죠. 그래서 wanna가 탄생합니다.<br><s>게다가 우린 이 wanna에 익숙합니다. 워너원(Wanna One) 덕분이죠</s><br>중요한 건, <code>동사</code> 같이 보이지만 <code>동사+전치사</code> 이기 때문에 <code>주어</code>+<code>wanna</code>+<code>명사</code>or <code>동사</code> 이런 구조로 사용해야한다는 점이에요. ex) I wanna meet your friends <sub>처음 사용한다면 wanna = want로 착각해서 wanna to ~ 이런 식의 실수를 하지 마세요.</sub></p>
-<h2 id="의미">의미</h2>
-<p><code>동사+전치사</code> ~을 원하다.</p>
-<h2 id="이렇게-써보세요">이렇게 써보세요</h2>
-<p>Let's Say ) I wanna get some rest. <sub>난 좀 쉬고싶어</sub></p>
-<p>Let's Say ) Do you wanna go to Starbucks? <sub>스타벅스 갈래?</sub></p>
-<p>Let's Say ) What do you wanna eat? <sub>넌 뭐 먹고 싶은데?</sub></p>
-<br>
-<h1 id="gonna-가너-going-to">Gonna 가너 (= going to)</h1>
-<p><img src="/images/gonna.gif" alt=""></p>
-<h2 id="개요-v2">개요</h2>
-<p>be going to<sub>~하려고 해</sub>라는 표현은 정말 많이 쓰는 표현인데요, 많이 쓸 수록 짧으면 좋겠죠?<br>going(gon) + to(na) gonna <code>가너-</code>가 만들어집니다.<br>중요한 건, going이 <code>동명사</code> 라서 앞에 의미없는 <code>be-동사</code>를 붙여줘야합니다. I<code>'m</code> gonna read a book. 이런 식으로요 <sub>wanna처럼 to 뒤에 <code>명사</code>or <code>동사</code>를 넣으면 됩니다.</sub><br>하지만, 언어를 쓰는 사람이 언어의 법입니다. gonna를 be going to로 쓰는 원어민도 종종 있다보니까 잘 못써도 이해 해줄겁니다.<br><s>다음 구어체 gotta와 헤깔리지 마세요</s></p>
-<h2 id="의미-v2">의미</h2>
-<p><code>동명사+전치사</code> ~하려고</p>
-<h2 id="이렇게-써보세요-v2">이렇게 써보세요</h2>
-<p>Let's Say ) I'm gonna study now. <sub>난 이제 공부하려고</sub></p>
-<p>Let's Say ) What're we gonna do? <sub>이제 어쩌게?/ 뭐하게?</sub></p>
-<p>Let's Say ) We're not gonna take it. <sub>우린 참지 않을거야</sub></p>
-<br>
-<h1 id="gotta-가러-가터-have-got-to">Gotta 가러(가터) (= have got to)</h1>
-<p><img src="/images/gotta.jpg" alt=""></p>
-<h2 id="개요-v3">개요</h2>
-<p>get은 원어민들이 좋아하는 동사죠, 무엇인가를 얻으며 변화되는 이미지를 갖고있는데요, p.p의 모습을 띄고 있는 have got<sub>p.p의 뜻이 아님</sub>는 have와 같은 뜻으로 사용됩니다. 즉, have got to는 have to입니다.<br>회화나 채팅할 때는 should, must, have to 같은 표현을 사용하지 말고, gotta를 사용하는 연습을 해보세요.<br>추가로, gotta는 맨 앞에 의문문으로 사용해 have you got a ~? 라는 의미로 가끔 쓰기도 한답니다.</p>
-<h2 id="의미-v3">의미</h2>
-<p><code>동사+전치사</code> ~해야 해 (=should, have to)</p>
-<h2 id="이렇게-써보세요-v3">이렇게 써보세요</h2>
-<p>Let's Say ) I gotta go home today. <sub>난 오늘 집에 가야해</sub></p>
-<p>Let's Say ) Gotta pencil? <sub>연필 한개 있니?</sub></p>
-<p>Let's Say ) You gotta be stronger. <sub>넌 더 강해져야 돼</sub></p>
-<br>
-<h1 id="kinda-카인더-kind-of">Kinda 카인더 (= kind of)</h1>
-<p><img src="/images/kinda.jpg" alt=""></p>
-<h2 id="개요-v4">개요</h2>
-<p>kind of를 빨리 발음해보세요, 그럼 왜 kinda(카인더)가 됐는지 알겠죠?<br>이 표현 역시 매우 많이 사용하는데, kind of라는 그 뜻 그대로 <code>일종의</code> 라는 전치사로 사용하거나,<br>젊은 사람들 사이에서 우리가 자주 쓰는 <code>그냥 좀~</code> 이런 투의 전치사로도 사용합니다.<br>서로 다른 뜻이니 상황에 맞게 잘 사용해보세요~</p>
-<h2 id="의미-v4">의미</h2>
-<p><code>전치사</code> 좀(조금), 일종의(종류의)</p>
-<h2 id="이렇게-써보세요-v4">이렇게 써보세요</h2>
-<p>Let's Say ) What kinda music do you like? <sub>어떤 류의 음악 좋아하니?</sub></p>
-<p>Let's Say ) I'm just kinda tired. <sub>나 그냥 좀 힘들어</sub></p>
-<p>Let's Say ) It's kinda cool. <sub>그거 좀 멋진데</sub></p>
-<br>
-<h1 id="outta-아우러-아우타-out-of">Outta 아우러(아우타) (= out of)</h1>
-<p><img src="/images/outta.gif" alt=""></p>
-<h2 id="개요-v5">개요</h2>
-<p>이것도 역시 out과 of를 빨리 발음하면 outta(미국-아우러/영국-아우타)발음이 됩니다.<br>out of는 의미가 엄청 다양합니다. 그래서 많이 사용하겠죠?<br>
-<br>1. out of [~] ~에서 벗어난<br>ex) It's out of answer. <sub>그건 답에서 벗어 났다.</sub><br>
-<br>2. out of [~] ~때문에<br>ex) I took the job out of necessity because we had no money left. <sub>우리는 남은 돈이 없었기에 난 직업을 필요성 때문에 갖었다.</sub><br>
-<br>3. [숫자A] out of [숫자B] B중에서 A<br>ex) five out of seven people <sub>7명 중에서 5명</sub><br>
-<br>4. out of [~] ~로 부터<br>ex) Didn't you know that butter was made out of milk? <sub>너 버터가 우유로부터 만들어진다는 거 몰랐니?</sub></p>
-<h2 id="의미-v5">의미</h2>
-<p><code>전치사</code> ~에서 벗어난, ~때문에, B중에서 A, ~로 부터</p>
-<h2 id="이렇게-써보세요-v5">이렇게 써보세요</h2>
-<p>Let's Say ) We'd better get outta here. <sub>우리 여길 나가는게 좋겠어</sub></p>
-<p>Let's Say ) I was scared outta my mind. <sub>난 내가 미칠까봐 두려웠어</sub></p>
-<p>Let's Say ) What is God want outta my life. <sub>하나님이 내 삶에서 원하는게 무엇인가?</sub></p>
-<br>
-<h1 id="그-외-구어체">그 외 구어체</h1>
-<p>그 외에도.. 수 많은 구어체들이 있지만 위에 5개정도만 기억하세요, 아래는 영덕<sub>영어덕후</sub>이 되고싶은 분들만보세요.</p>
-<h2 id="ain-t-am-not-isn-t-aren-t-don-t">ain't (=am not, isn't, aren't, don't)</h2>
-<h2 id="hafta-have-to">hafta (=have to)</h2>
-<h2 id="donno-don-t-know">donno (=don't know)</h2>
-<h2 id="gimme-give-me">gimme (=give me)</h2>
-<h2 id="lemme-let-me">lemme (=let me)</h2>
-<h2 id="musta-must-have">musta (=must have)</h2>
-<h2 id="lotta-a-lot-of">lotta (=a lot of)</h2>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1383,241 +860,29 @@ WAS는 웹 애플리케이션 자체 API를 제공하기 위해 컨테이너를 
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://curookie.github.io/2018/05/28/2018-05-28-Hexo와-GitHub-Pages로-블로그-오픈/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JJ WON">
-      <meta itemprop="description" content="MR Developer, Infagic Smith">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Curookie's Infagic Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/28/2018-05-28-Hexo와-GitHub-Pages로-블로그-오픈/" itemprop="url">
-                  Hexo와 GitHub Pages로 블로그 오픈
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-05-28 18:22:00" itemprop="dateCreated datePublished" datetime="2018-05-28T18:22:00+09:00">2018-05-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-06-15 12:45:27" itemprop="dateModified" datetime="2018-06-15T12:45:27+09:00">2018-06-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/28/2018-05-28-Hexo와-GitHub-Pages로-블로그-오픈/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/28/2018-05-28-Hexo와-GitHub-Pages로-블로그-오픈/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>Hexo<sub>헥소</sub>와 GitHub Pages<sub>깃허브 페이지</sub>로 블로그를 만들었습니다.<br>
-개인적으로 깃허브 페이지<sub>깃 허브 웹사이트</sub>는 리눅스의 마인드<sub>자유 소프트웨어, 오픈개발</sub>가 담겨 있다는 점이 가장 맘에 듭니다. <s>무료 호스팅, 도메인 제공 넘조아</s></p>
-</blockquote>
-<br>
-<h1 id="프롤로그">프롤로그</h1>
-<p>깃 페이지<sub>Git Page</sub>로 블로그를 만든다는건 개발자들에게 특히 좋지만, 엄청난 응용<sub>커스터 마이징</sub>이 가능한 블로그이기에 제약받지 않는 자유로운 나만의 홈페이지를 만들고싶은 모든분들에게 적극 추천합니다!<br>
-<br>게다가 Hexo라는 도구를 이용한다면 이런 강점을 갖을 수 있습니다. 최신기술<sub>웹 관련</sub>, 최적화<sub>엄청 가볍다 ㅎㅎ</sub>, SEO<sub>검색 잘 되게 하는 기술</sub>, 마크다운<sub>키보드 만으로 꾸밀 수 있음</sub></p>
-<br>
-<h1 id="블로그-소개">블로그 소개</h1>
-<br>
-<p><img src="/images/code.jpg" alt=""></p>
-<p>제 블로그에는 주로 개발자들을 위한 컨텐츠와 개인적인 포스팅을 할 예정입니다.</p>
-<br>
-<h2 id="블로그-신념">블로그 신념?</h2>
-<h3 id="제-블로그-신념은-정보를-전달할-대상에게-이해하기-쉬운-글을-작성할-것입니다">제 블로그 신념은 정보를 전달할 대상에게 이해하기 쉬운 글을 작성할 것입니다.</h3>
-<p><img src="/images/baby.jpg" alt=""></p>
-<ul>
-<li>장황하고 횡설수설하는 글, 사전 같은 글보다는 필요한 정보를 쉽고 빠르게 이해할 수 있게 사족은 최대한 적게, 예시나 사진을 사용해서 포스팅할 계획입니다. <s>초등학생도 이해할 수 있을지도..?</s> <br></li>
-<li>제가 작성하는 포스트는 이해를 돕기 위해 포스팅 타겟에 따라 말투, 게시하는 스타일이 달라질 것입니다.</li>
-</ul>
-<h3 id="개인적인-정리하는-공간으로서-사용할-것입니다">개인적인, 정리하는 공간으로서 사용할 것입니다.</h3>
-<p><img src="/images/files.jpg" alt=""></p>
-<ul>
-<li>개인 포토폴리오와 공부한 내용을 정리하는 목적의 포스팅도 올릴 계획입니다.</li>
-</ul>
-<br>
-<h2 id="hexo-github-pages의-특징">Hexo + GitHub Pages의 특징</h2>
-<h3 id="99-자유로운-블로그-제작-가능">99% 자유로운 블로그 제작 가능!</h3>
-<ul>
-<li>한 마디로 표현해서 <code>모든 것이 수정 가능하다</code> <s>심지어 포스팅 날짜도</s> <br></li>
-<li>필요한 기능이 있다면 플러그인을 추가해 제작이 가능하다.</li>
-</ul>
-<h3 id="키보드-만으로-포스팅이-가능하다">키보드 만으로 포스팅이 가능하다.</h3>
-<ul>
-<li>깃허브 블로그 답게 포스팅도 코딩같이 할 수 있다.</li>
-<li>MarkDown문법을 사용해 텍스트를 꾸미는 것 외에도, 복잡한 수식 또한 텍스트로 표현할 수 있다.<br>
-<br> 이렇게 $(ax^2 + bx + c = 0)$, $(a \ne 0)$ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$</li>
-</ul>
-<h3 id="테마가-jekyll보다-이쁘고-테마를-개발하는-유저도-많다">테마가 Jekyll보다 이쁘고, 테마를 개발하는 유저도 많다.</h3>
-<ul>
-<li>블로그 프레임워크로 유명한 3가지가 있다. Hexo - JS(nodeJS), Hugo - Go, Jekyll - Ruby</li>
-<li>각자 사용 언어가 다르고 장, 단점이 있지만 포스트 원본 파일을 따로 관리할 수 있고<sub>Jekyll이라면 깃 허브에서 private아닌 이상(=매달 돈을 내지 않는 이상) 그대로 공개됨</sub> 테마가 확실히 좋다. 그리고 더 가벼움. 맨 처음엔 나도 Jekyll라는 툴을 사용 했지만, 내가 고른 테마가 너무 문제가 많아 Hexo로 갈아탔다. 웹 마스터가 아니기에 테마가 중요하고 이 때문에 스트레스 받고 싶지 않았다.</li>
-</ul>
-<p><br><br><br>
-Hexo와 GitHub Pages로 블로그 만드는 포스팅을 함 해드려겠다. :)</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1638,8 +903,17 @@ Hexo와 GitHub Pages로 블로그 만드는 포스팅을 함 해드려겠다. :)
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1745,6 +1019,22 @@ Hexo와 GitHub Pages로 블로그 만드는 포스팅을 함 해드려겠다. :)
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-1-서블릿-시작하기"><span class="nav-number">1.</span> <span class="nav-text">[2.1] 서블릿 시작하기</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-1-서블릿-설정"><span class="nav-number">1.1.</span> <span class="nav-text">[2.1.1] 서블릿 설정</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-1-그래들을-이용한-서블릿-설정"><span class="nav-number">1.1.1.</span> <span class="nav-text">[2.1.1.1] 그래들을 이용한 서블릿 설정</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2-서블릿-내부-동작"><span class="nav-number">2.</span> <span class="nav-text">[2.2] 서블릿 내부 동작</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-1-서블릿의-생명주기"><span class="nav-number">2.1.</span> <span class="nav-text">[2.2.1] 서블릿의 생명주기</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-1-서블릿-초기화와-init-메서드"><span class="nav-number">2.1.1.</span> <span class="nav-text">[2.2.1.1] 서블릿 초기화와 init 메서드</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-3-서블릿-활용"><span class="nav-number">3.</span> <span class="nav-text">[2.3] 서블릿 활용</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-1-http-요청과-응답"><span class="nav-number">3.1.</span> <span class="nav-text">[2.3.1] HTTP 요청과 응답</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-1-get-요청-처리"><span class="nav-number">3.1.1.</span> <span class="nav-text">[2.3.1.1] GET 요청 처리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-2-post-요청-처리"><span class="nav-number">3.1.2.</span> <span class="nav-text">[2.3.1.2] POST 요청 처리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-3-html-폼-데이터-전송"><span class="nav-number">3.1.3.</span> <span class="nav-text">[2.3.1.3] HTML 폼 데이터 전송</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-2-멀티파트"><span class="nav-number">3.2.</span> <span class="nav-text">[2.3.2] 멀티파트</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-4-서블릿-관련-객체"><span class="nav-number">4.</span> <span class="nav-text">[2.4] 서블릿 관련 객체</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-1-필터"><span class="nav-number">4.1.</span> <span class="nav-text">[2.4.1] 필터</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-1-웹-필터"><span class="nav-number">4.1.1.</span> <span class="nav-text">[2.4.1.1] 웹 필터</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-2-쿠키"><span class="nav-number">4.2.</span> <span class="nav-text">[2.4.2] 쿠키</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-1-쿠키의-구성"><span class="nav-number">4.2.1.</span> <span class="nav-text">[2.4.2.1] 쿠키의 구성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-2-쿠키-생성"><span class="nav-number">4.2.2.</span> <span class="nav-text">[2.4.2.2] 쿠키 생성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-3-쿠키값-수정-및-삭제"><span class="nav-number">4.2.3.</span> <span class="nav-text">[2.4.2.3] 쿠키값 수정 및 삭제</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-3-세션"><span class="nav-number">4.3.</span> <span class="nav-text">[2.4.3] 세션</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-1-세션의-구성"><span class="nav-number">4.3.1.</span> <span class="nav-text">[2.4.3.1] 세션의 구성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-2-세션-생성"><span class="nav-number">4.3.2.</span> <span class="nav-text">[2.4.3.2] 세션 생성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-1-세션에-값-저장-및-삭제"><span class="nav-number">4.3.3.</span> <span class="nav-text">[2.4.3.1] 세션에 값 저장 및 삭제</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-5-디자인-패턴-활용"><span class="nav-number">5.</span> <span class="nav-text">[2.5] 디자인 패턴 활용</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-1-java-ee-패턴"><span class="nav-number">5.1.</span> <span class="nav-text">[2.5.1] Java EE 패턴</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-1-1-java-ee-패턴-목록"><span class="nav-number">5.1.1.</span> <span class="nav-text">[2.5.1.1] Java EE 패턴 목록</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-2-프론트-컨트롤러-패턴"><span class="nav-number">5.2.</span> <span class="nav-text">[2.5.2] 프론트 컨트롤러 패턴</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-1-sendredirect"><span class="nav-number">5.2.1.</span> <span class="nav-text">[2.5.2.1] sendRedirect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-2-forward"><span class="nav-number">5.2.2.</span> <span class="nav-text">[2.5.2.2] forward</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-3-커맨드-패턴"><span class="nav-number">5.2.3.</span> <span class="nav-text">[2.5.2.3] 커맨드 패턴</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1881,6 +1171,10 @@ Hexo와 GitHub Pages로 블로그 만드는 포스팅을 함 해드려겠다. :)
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -1895,6 +1189,23 @@ Hexo와 GitHub Pages로 블로그 만드는 포스팅을 함 해드려겠다. :)
     <script id="dsq-count-scr" src="https://curookie.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://curookie.github.io/2018/07/09/2018-07-11-스프링-부트-2-서블릿/';
+        this.page.identifier = '2018/07/09/2018-07-11-스프링-부트-2-서블릿/';
+        this.page.title = '[스프링 부트] 2. 서블릿';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://curookie.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
@@ -2257,43 +1568,7 @@ Hexo와 GitHub Pages로 블로그 만드는 포스팅을 함 해드려겠다. :)
 
   
   
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-  
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 
@@ -2317,7 +1592,7 @@ Hexo와 GitHub Pages로 블로그 만드는 포스팅을 함 해드려겠다. :)
   <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
   <script type="text/javascript">
   
-    bookmark.loadBookmark();
+    bookmark.scrollToMark('auto', "#more");
   
   </script>
 
